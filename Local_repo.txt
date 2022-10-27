@@ -1,0 +1,29 @@
+https://www.thegeekdiary.com/linux-unix-how-to-mount-a-iso-file/
+
+mkdir /iso_image
+cd /path/to/iso/dvd.iso
+#mount -o loop dvd.iso /iso_image
+ mount -o loop rhel-server-7.4-x86_64-dvd.iso /iso_image
+cd /iso_image
+ls /iso_image
+
+cp /iso_image/media.repo /etc/yum.repos.d/rhel7.repo
+chmod 644 /etc/yum.repos.d/rhel7.repo
+
+
+vim /etc/yum.repos.d/rhel7.repo
+#Chenge below paramiter in repo file
+
+enabled=1
+baseurl=file:///mnt/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+ mkdir -p /u01/app/oracle/product/19c/db_1/
+
+# yum clean all
+
+# subscription-manager clean
+
+............
+yum repolist enabled
+yum repolist all
